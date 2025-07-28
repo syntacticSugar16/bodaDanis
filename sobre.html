@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+
+        body {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 100vh;
+
+            background-color: #f0f2f5;
+
+            overflow: hidden;
+
+            flex-direction: column; /* Para alinear el texto arriba del sobre */
+
+        }
+
+        .instruction-text {
+
+            font-size: 1.2em;
+
+            color: #ffffff;
+
+            margin-bottom: 20px;
+
+            cursor: default; /* Indica que no es interactivo en sí mismo */
+
+        }
+
+
+
+        .envelope-wrapper {
+
+            position: relative;
+
+            width: 300px;
+
+            height: 200px;
+
+            perspective: 1000px;
+
+            animation: scaleEnvelope 2s infinite alternate; /* Nueva animación de escala */
+
+            cursor: pointer; /* Indica que es क्लिकable */
+
+        }
+
+
+
+        @keyframes scaleEnvelope {
+
+            0% {
+
+                transform: scale(1);
+
+            }
+
+            100% {
+
+                transform: scale(1.1); /* Ligeramente mayor para el efecto de "latido" */
+
+            }
+
+        }
+
+
+
+        .envelope {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: #101F42;
+
+            border-radius: 8px;
+
+            transform-style: preserve-3d;
+
+            transition: transform 1s ease-in-out; /* Mantenemos la transición para la apertura */
+
+        }
+
+
+
+        /* Solapas básicas (sin cambios) */
+
+        .flap {
+
+            position: absolute;
+
+            background-color: #101F42;
+
+            border-radius: 8px;
+
+            transform-origin: bottom;
+
+            z-index: 2;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .top.flap {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-end;
+
+            width: 100%;
+
+            height: 50%;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom-left-radius: 0;
+
+            border-bottom-right-radius: 0;
+
+            transform-origin: center bottom;
+
+            z-index: 3;
+
+            transform: rotateX(0deg);
+
+            transition: transform 0.8s ease-in-out;
+
+        }
+
+        .bottom.flap img{
+
+            width: 40%;
+
+        }
+
+
+
+        .left.flap, .right.flap {
+
+            width: 50%;
+
+            height: 100%;
+
+            top: 0;
+
+            background-color: #101F42;
+
+            z-index: 1;
+
+        }
+
+
+
+        .left.flap {
+
+            left: 0;
+
+            border-top-right-radius: 0;
+
+            border-bottom-right-radius: 0;
+
+            transform-origin: right center;
+
+            transform: rotateY(0deg);
+
+            transition: transform 0.8s ease-in-out;
+
+        }
+
+
+
+        .right.flap {
+
+            right: 0;
+
+            border-top-left-radius: 0;
+
+            border-bottom-left-radius: 0;
+
+            transform-origin: left center;
+
+            transform: rotateY(0deg);
+
+            transition: transform 0.8s ease-in-out;
+
+        }
+
+
+
+        .bottom.flap {
+
+            display: flex;
+
+            justify-content: center;
+
+            width: 100%;
+
+            height: 50%;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top-left-radius: 0;
+
+            border-top-right-radius: 0;
+
+            transform-origin: center top;
+
+            z-index: 1;
+
+        }
+
+
+
+        /* La carta (sin cambios iniciales) */
+
+        .letter {
+
+            position: absolute;
+
+            width: 90%;
+
+            height: 90%;
+
+            background-color: #ffffff;
+
+            top: 5%;
+
+            left: 5%;
+
+            border-radius: 5px;
+
+            z-index: 0;
+
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+            transform: translateY(200px); /* Inicialmente fuera de la vista */
+
+            transition: transform 1s ease-in-out 0.3s, opacity 0.5s ease-in-out 0.3s;
+
+            opacity: 0;
+
+            background-image: url("img/captura.jpeg");
+
+            background-repeat: no-repeat;
+
+            background-attachment: local;
+
+            background-size: cover;
+
+            background-position: top;  
+
+        }
+
+
+
+        /* Clase para el sobre abierto */
+
+        .envelope-wrapper.open .top.flap {
+
+            transform: rotateX(180deg);
+
+            z-index: 0;
+
+        }
+
+
+
+        .envelope-wrapper.open .left.flap {
+
+            transform: rotateY(-90deg);
+
+        }
+
+
+
+        .envelope-wrapper.open .right.flap {
+
+            transform: rotateY(90deg);
+
+        }
+
+
+
+        .envelope-wrapper.open .letter {
+
+            transform: translateY(-80px);
+
+            opacity: 1;
+
+        }
+
+
+
+        /* Escalado a 2x durante 4s */
+
+        .envelope-wrapper.expand {
+
+            animation: scaleAndHide 4s forwards ease-in-out;
+
+        }
+
+
+
+        /* Escala con ocultamiento */
+
+        @keyframes scaleAndHide {
+
+            0% {
+
+                transform: scale(1);
+
+            }
+
+            100% {
+
+                transform: scale(2);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="envelope-wrapper">
+
+            <div class="envelope">
+
+                <div class="front flap"></div>
+
+                <div class="back flap"></div>
+
+                <div class="letter"></div>
+
+                <div class="left flap"></div>
+
+                <div class="right flap"></div>
+
+                <div class="bottom flap">
+
+                    <img src="img/logo boda danis-03.png" alt="">
+
+                </div>
+
+                <div class="top flap">
+
+                    <div class="instruction-text">Click para abrir</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const envelopeWrapper = document.querySelector('.envelope-wrapper');
+    const backgroundImage = document.querySelector('.background-image');
+
+    envelopeWrapper.addEventListener('click', function() {
+        if (!this.classList.contains('open')) {
+            this.classList.add('open');
+
+            setTimeout(() => {
+                envelopeWrapper.classList.add('expand');
+            }, 1000);
+
+            setTimeout(() => {
+                envelopeWrapper.style.display = 'none';
+                backgroundImage.style.opacity = '1';
+            }, 5000);
+        }
+    });
+});
+</script>
+</body>
+</html>

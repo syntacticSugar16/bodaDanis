@@ -1,0 +1,351 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'PT Serif', serif;
+    /*Chlorine blue
+    background-color: #0CAFFF; */
+    /*Cornglorwe blue*/
+    --bg-color: #340628;
+    --second-bg-color: #FFF3FD;
+    --texto: #101f42;
+    text-align: center;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .lds-heart {
+    /* change color here */
+    color: #a02e70
+  }
+  .lds-heart img{
+    width: 40%;
+    animation: lds-heart 5s infinite
+  }
+
+ 
+  @keyframes lds-heart {
+    0% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(0.9);
+    }
+  }
+    
+#centrado{
+    height: 100vh;
+    background-color: #101F42;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10rem;
+}
+h2{
+    font-size: 5rem;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+}
+h3{
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6rem;
+    margin: 0;
+}
+h4{
+    font-size: 4rem;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+}
+p{
+    font-size: 3rem;
+    margin: 2rem 0;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#vestimenta h2, #date-info h2, #galeria h2, #mensaje h2{
+    background-color: var(--bg-color);
+}
+.fill-1{
+    fill: var(--bg-color);
+    padding: 0 0 2rem 0;
+}
+.fill-2{
+    fill: var(--second-bg-color);
+    padding: 0 0 2rem 0;
+    /*transform:3rotate(180deg);*/
+}
+.hidden{
+    opacity: 0;
+    transition: all 2s;
+}
+.show{
+    opacity: 1;
+    animation: scale-center 1.3s;
+}
+@keyframes scale-center {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+
+@keyframes slide-right {
+  from {transform: translate(-1000px);}
+  to {transform: translate(0);}
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+
+#titulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+    color: #ffffff;
+    padding: 0 0 10rem 0;    
+    background-image: linear-gradient(rgba(7, 12, 0, 0.5), rgba(7, 12, 0, 0.5)), url("/img/fotos-danis/WhatsApp\ Image\ 2025-07-12\ at\ 6.05.03\ PM\ \(3\).jpeg");    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    /*animation: change 30s ease-in-out infinite alternate-reverse forwards;*/
+}
+#titulo h1{
+    color: #FBAF53;
+}
+.contenido{  
+    position: relative;
+    z-index: 1;
+}
+#bg-titulo{
+    z-index: -1;
+}
+#titulo h1,h2,h3{
+    margin: 0;
+    padding: 1rem 0;
+}
+.frase{
+    height: 20vh;
+    background-color: var(--bg-color);
+    padding: 5rem 0;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.frase img{
+    width: 8%;
+}
+.frase p{
+    margin: 0;
+}
+#time{
+    color: #ffffff;
+    background-image: linear-gradient(rgba(5, 7 , 12, 0.3), rgba(5, 7, 12, 0.3)), url('/img/fotos-danis/WhatsApp\ Image\ 2025-07-12\ at\ 6.05.03\ PM\ \(2\).jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+/*
+#bg-time{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+    background-image: linear-gradient(rgba(5, 7 , 12, 0.5), rgba(5, 7, 12, 0.5)), url('/img/GUCdskcb0AM4iOU.jpeg');    
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+    transform: translate3d(0, 0, -1px) scale(2);
+}*/
+#time-counter{
+    display: flex;
+    padding: 0 0 2rem 0;
+}
+.simply-section{
+    background-color: none;
+    margin: 4rem 2rem 0 2rem;
+}
+.simply-amount{
+    display: block;
+    font-size: 4rem;
+    font-weight: 700;
+}
+.simply-word{
+    font-size: 3rem;
+    font-weight: 300;
+}
+#date-info{
+    background-color: var(--second-bg-color);
+    color: #ffffff;
+}
+#date-info p{
+    color: var(--texto);
+}
+#date-grids{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    padding: 2rem 0;
+}
+#date-grids svg{
+    width: 8rem;
+    fill: #f1c40f;
+}
+#date-info p{
+    margin: 2.5rem 0;
+}
+.btnInfo{
+    margin: 4rem 0;
+}
+.btnInfo a, input[type="button"], button{
+    font-size: 2.2rem;
+    color: #000000;
+    padding: 1.2rem 1.2rem;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-radius: .5rem;
+}
+.btnInfo a > img{
+    width: 2.2rem;
+}
+#asistencia {
+    color: #ffffff;
+    background-image: linear-gradient(rgba(5, 7 , 12, 0.65), rgba(5, 7, 12, 0.65)), url('/img/ranita.jpeg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 3rem 0;
+
+}
+#vestimenta{
+    color: #ffffff;
+    background-color: var(--second-bg-color);
+    padding: 0 0 3rem 0;
+}
+#vestimenta h4, #vestimenta p{
+    color: var(--texto);
+}
+#vestimenta img{
+    width: 20%;
+}
+#vestimenta hr{
+    width: 40%;
+}
+#regalos{
+    color: #ffffff;
+    background-image: linear-gradient(rgba(5, 7 , 12, 0.65), rgba(5, 7, 12, 0.65)), url('/img/pexels-pixabay-264787.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0 0 3rem 0;
+}
+#regalos img{
+    width: 15%;
+}
+#galeria{
+    color: #ffffff;
+    background-color: var(--second-bg-color);
+    padding: 0 0 3rem 0;
+}
+#galeria p{
+    color: var(--texto);
+}
+.gift{
+    width: 25%;
+}
+
+@media screen and (max-width: 992px){
+    h1{
+        font-size: 6rem;
+    }
+    h2{
+        font-size: 4rem;
+    }
+    h3{
+        font-size: 4rem;
+    }
+    h4{
+        font-size: 3rem;
+    }
+    p{
+        font-size: 2.2rem;
+    }
+    .container{
+        max-width: 900px;
+    }
+    .cover, .center{
+        justify-content: flex-start;
+    }
+    .frase img{
+        width: 20%;
+    }
+    #vestimenta img{
+        width: 40%;
+    }
+    #time img{
+        width: 25%;
+    }
+    #time-counter {
+        padding: 0;
+    }
+    #cita p, #fecha p{
+        font-size: 2rem;
+    }
+    #fecha p{
+        font-size: 2.2rem;
+    }
+    .info {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .info img{
+        max-width: 25rem;
+    }
+
+    .simply-section{
+        height: 10rem;
+        margin: 2rem 1rem 0 1rem;
+    }
+    .simply-amount{
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .simply-word{
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(5, 250px);
+        gap: 12rem;
+        overflow-y: hidden;
+        padding: 0 6rem;
+    }
+    .card{
+        color: #000000;
+    }
+}
