@@ -513,7 +513,8 @@ span.PIN_1753733900787_embed_grid{
         font-weight: 300;
     }
     .cards{
-        grid-template-columns: repeat(5, 250px);
+        grid-template-columns: repeat(10, 250px);
+        grid-template-rows: repeat(1, 470px);
         gap: 12rem;
         overflow-y: hidden;
         padding: 0 6rem;
