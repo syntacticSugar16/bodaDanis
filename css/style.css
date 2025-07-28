@@ -353,23 +353,18 @@ p{
 #date-info p{
     color: var(--texto);
 }
-#date-grids{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    text-align: center;
-    padding: 2rem 0;
-}
-#date-grids svg{
-    width: 8rem;
-    fill: #f1c40f;
-}
+
 #date-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+#date-container div img{
+    width: 30%;
+}
 #date-info img{
-    width: 15%;
+    width: 60%;
+    border-radius: 2rem;
 }
 #date-info p{
     margin: 2.5rem 0;
@@ -438,11 +433,18 @@ p{
 .gift{
     width: 25%;
 }
-#date-container img{
-    width: 35%;
-    border-radius: 2rem;
+span.PIN_1753733900787_embed_grid.PIN_1753733900787_c5 {
+    max-width: 1200px;
+    min-width: 300px;
 }
-
+span.PIN_1753733900787_embed_grid{
+    width: 400px;
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 250px);   
+    justify-content: center;
+}
 @media screen and (max-width: 992px){
     h1{
         font-size: 6rem;
@@ -504,19 +506,29 @@ p{
         font-weight: 300;
     }
     .cards{
-        display: grid;
         grid-template-columns: repeat(5, 250px);
         gap: 12rem;
         overflow-y: hidden;
         padding: 0 6rem;
+        justify-content: unset;
     }
     .card{
         color: #000000;
     }
     #date-container{
-    flex-direction: column;
+        flex-direction: column;
     }
     #date-info img{
-    width: 35%;
-}
+        width: 60%;
+    }
+    #date-container div img{
+        width: 35%;
+    }
+    span.PIN_1753733900787_embed_grid.PIN_1753733900787_c5 {
+        max-width: 1200px;
+        min-width: 200px;
+    }
+    span.PIN_1753733900787_embed_grid{
+        width: 250px;
+    }
 }
