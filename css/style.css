@@ -283,6 +283,9 @@ p{
 #titulo h1{
     color: #FBAF53;
 }
+#titulo img{
+    width: 20%;
+}
 .contenido{  
     position: relative;
     z-index: 1;
