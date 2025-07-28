@@ -471,6 +471,9 @@ span.PIN_1753733900787_embed_grid{
     .cover, .center{
         justify-content: flex-start;
     }
+    #titulo img{
+        width: 35%;
+    }
     .frase img{
         width: 20%;
     }
