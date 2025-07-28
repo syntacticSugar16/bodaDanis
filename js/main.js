@@ -31,14 +31,30 @@ document.addEventListener('DOMContentLoaded', () => {
     nowrap: false
   });
 });	
+document.addEventListener('DOMContentLoaded', function() {
+    const envelopeWrapper = document.querySelector('.envelope-wrapper');
+    const backgroundImage = document.querySelector('.background-image');
+    const letterContainer = document.querySelector('.letter-container');
+    const invitacion = document.querySelector('.invitacion');
 
-// Obtén la imagen por su ID (asegúrate de que tu imagen tenga un ID en tu HTML)
-const miImagen = document.getElementById('miImagen');
+    envelopeWrapper.addEventListener('click', function() {
+        if (!this.classList.contains('open')) {
+            this.classList.add('open');
 
-// Agrega un event listener para el evento 'click'
-miImagen.addEventListener('click', function() {
-  // Aquí va la acción que quieres realizar cuando se presiona la imagen
-  alert('¡La imagen ha sido presionada!');
-  console.log('¡Se hizo clic en la imagen!');
-  // Por ejemplo, podrías cambiar el tamaño de la imagen, mostrar otro elemento, etc.
+            setTimeout(() => {
+                envelopeWrapper.classList.add('expand');
+            }, 1000);
+
+            setTimeout(() => {
+                envelopeWrapper.style.display = 'none';
+                backgroundImage.style.opacity = '1';
+            }, 5000);
+
+            setTimeout(() => {
+                letterContainer.style.display = 'none';
+                invitacion.style.position = 'relative';
+            }, 4700);
+            
+        }
+    });
 });
