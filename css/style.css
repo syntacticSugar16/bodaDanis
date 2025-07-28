@@ -81,6 +81,7 @@ p{
     min-height: 100vh;
     overflow: hidden;
     flex-direction: column; /* Para alinear el texto arriba del sobre */
+    background-color: var(--second-bg-color);
 }
 .invitacion{
     position: fixed;
