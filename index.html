@@ -66,7 +66,7 @@
                     <h2 class="container hidden">Sábado 8</h2>
                         <div id="fecha">
                             <p class="container hidden">Noviembre</p>
-                            <p class="container hidden"> 19:00 Hrs</p>
+                            <p class="container hidden"> 16:00 Hrs</p>
                         </div>
                     <h2 class="container hidden">Faltan: </h2>
                     <div class="container hidden" id="time-counter"></div>
@@ -86,7 +86,9 @@
                         <div id="date-container">
                             <div>
                                 <img src="img/place.gif" alt="">
-                                <p><b>Jardin y Lago <br>Quinta "Las Palmas"</b><br>Francisco I Madero 79, Coyol, 91780 Veracruz, Ver.</p>
+                                <p><b>Jardin y Lago</b></p>
+                                <h4>Quinta "Las Palmas"</h4>
+                                <p>Francisco I Madero 79, <br>Coyol, 91780 <br>Veracruz, Ver.</p>
                                 <div class="btnInfo">
                                     <a href="https://maps.app.goo.gl/YtNhscYzwDHUXDaq6" target="_blank">Ver mapa</a>
                                 </div>
@@ -95,19 +97,77 @@
                         </div>
                         
                     </div>
-                </div>  
+                </div>
+  
             </section>
 
-            <section id="asistencia">
-                <svg class="fill-2" fill="" viewBox="0 0 1439 60"><path d="M0,0 L0,60 C0,60 359,18 719,18 C1079,18 1439,60 1439,60 L1439,0 Z" fill=""></path></svg>
-                <div class="container hidden">
-                    <h2>Asistencia</h2>
-                    <p>¡Queremos compartir este momento contigo!</p>
-                    <p>Por favor ayúdanos confirmando tu asistencia.</p>
-                    <p><b>Evento sin niños</b></p>
-                    <div class="btnInfo">
-                        <a href="https://wa.me/522292050050?text=Hola, confirmo mi asistencia a tu boda." target="_blank" ><img src="/img/whatsapp-fill.svg" alt="Icono de whatsapp"> Confirmar asistencia</a>
+            <section id="itinerario">
+                
+                <div class="fondo-titulo">
+                    <svg class="fill-2" fill="" viewBox="0 0 1439 60"><path d="M0,0 L0,60 C0,60 359,18 719,18 C1079,18 1439,60 1439,60 L1439,0 Z" fill=""></path></svg>
+                    <h2 class="hidden">Itinerario</h2>
+                </div>
+                
+                <div class="fondo-itinerario">
+                    <div class="hidden">
+                        <div class="elem-itinerario-right">
+                            <p>Llegada <br>02:30 - 03:30 p.m.</p>
+                            <img src="" alt="Imagen de llegada">
+                        </div>
+
+                        <div class="sep-itinerario">
+                            <b></b>
+                            <div class="linea-vertical"></div>
+                            <b></b>
+                        </div>
+
+                        <div class="elem-itinerario-left">
+                            <b></b>
+                            <img src="" alt="Imagen de Ceremonia">
+                            <p>Ceremonia <br>04:00 p.m.</p>
+                        </div>
+
+                        <div class="sep-itinerario">
+                            <b></b>
+                            <div class="linea-vertical"></div>
+                            <b></b>
+                        </div>
+
+                        <div class="elem-itinerario-right">
+                            <p>Celebración <br>06:00 p.m.</p>
+                            <img src="" alt="Imagen de celebración"> 
+                        </div>
+
+                        <div class="sep-itinerario">
+                            <b></b>
+                            <div class="linea-vertical"></div>
+                            <b></b>
+                        </div>
+
+                        <div class="elem-itinerario-left">
+                            <b></b>
+                            <img src="" alt="Imagen de fotos y regalos">
+                            <p>Fotos y regalos <br>08:00 p.m.</p>
+                        </div>
+
+                        <div class="sep-itinerario">
+                            <b></b>
+                            <div class="linea-vertical"></div>
+                            <b></b>
+                        </div>
+
+                        <div class="elem-itinerario-right">
+                            <p>Clausura <br>10:00 p.m.</p>
+                            <img src="" alt="Imagen de clausura"> 
+                        </div>
+
+                        <div class="elem-itinerario">
+                            <b></b>
+                            <p>Consulta el itinerario completo <br><b><a href="">Aquí</a></b></p>
+                            <div class="linea-vertical"></div>
+                        </div>
                     </div>
+
                 </div>
             </section>
 
@@ -120,7 +180,7 @@
                 <div class="container hidden">
                     <p>Formal</p>
                     <div>
-                        <img src="img/tuxedo.gif" alt="">
+                        <img src="img/tuxedo.gif" alt="" id="traje">
                         <img src="img/dress.gif" alt="">
                     </div>
                     <h4>Evita los siguientes colores</h4>
@@ -136,24 +196,30 @@
                 <svg class="fill-2" fill="" viewBox="0 0 1439 60"><path d="M0,0 L0,60 C0,60 359,18 719,18 C1079,18 1439,60 1439,60 L1439,0 Z" fill=""></path></svg>
 
                 <h2>Mesa de regalos</h2>
-                <img src="img/christmas.gif" alt="Animación de regalos">
+                <img src="img/christmas.gif" alt="Animación de regalos" id="gift-regalos">
+                <p>Haz click en cada opción.</p>
 
                     <div class="opciones-regalo container hidden">
                         <div>
-                            <img src="" alt="Icono de amazon">
-                            <p>Amazon</p>
+                            <a href="https://www.amazon.com.mx/hz/wishlist/ls/2SK35ZGKMWMNA?ref_=wl_share" target="_blank">
+                                <img src="img/amazon.png" alt="Icono de amazon">
+                                <p>Amazon</p>
+                            </a>
                         </div>
 
                         <div>
-                            <img src="" alt="Icono de mercado libre">
-                            <p>Mercado Libre</p>
+                            <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51607591" target="_blank">
+                                <img src="img/liverpool.png" alt="Icono de liverpulgas">
+                                <p>Liverpool</p>
+                            </a>
                         </div>
 
                         <div>
-                            <img src="" alt="Icono de lluvia de sobres">
+                            <img src="img/sobres.png" alt="Icono de lluvia de sobres">
                             <p>Lluvia de sobres</p>
                         </div>
                     </div>
+
                     
             </section>
 
@@ -328,71 +394,16 @@
                 </div>
             </section>
 
-            <section id="itinerario">
-                <div class="fondo-titulo">
-                    <h2 class="hidden">Itinerario</h2>
-                </div>
-                
-                <div class="fondo-itinerario">
-                    <div class="hidden">
-                        <div class="elem-itinerario-right">
-                            <p>Llegada <br>02:30 - 03:30 p.m.</p>
-                            <img src="" alt="Imagen de llegada">
-                        </div>
-
-                        <div class="sep-itinerario">
-                            <b></b>
-                            <div class="linea-vertical"></div>
-                            <b></b>
-                        </div>
-
-                        <div class="elem-itinerario-left">
-                            <b></b>
-                            <img src="" alt="Imagen de Ceremonia">
-                            <p>Ceremonia <br>04:00 p.m.</p>
-                        </div>
-
-                        <div class="sep-itinerario">
-                            <b></b>
-                            <div class="linea-vertical"></div>
-                            <b></b>
-                        </div>
-
-                        <div class="elem-itinerario-right">
-                            <p>Celebración <br>06:00 p.m.</p>
-                            <img src="" alt="Imagen de celebración"> 
-                        </div>
-
-                        <div class="sep-itinerario">
-                            <b></b>
-                            <div class="linea-vertical"></div>
-                            <b></b>
-                        </div>
-
-                        <div class="elem-itinerario-left">
-                            <b></b>
-                            <img src="" alt="Imagen de fotos y regalos">
-                            <p>Fotos y regalos <br>08:00 p.m.</p>
-                        </div>
-
-                        <div class="sep-itinerario">
-                            <b></b>
-                            <div class="linea-vertical"></div>
-                            <b></b>
-                        </div>
-
-                        <div class="elem-itinerario-right">
-                            <p>Clausura <br>10:00 p.m.</p>
-                            <img src="" alt="Imagen de clausura"> 
-                        </div>
-
-                        <div class="elem-itinerario">
-                            <b></b>
-                            <p>Consulta el itinerario completo <br><b><a href="">Aquí</a></b></p>
-                            <div class="linea-vertical"></div>
-                        </div>
+            <section id="asistencia">
+                <svg class="fill-2" fill="" viewBox="0 0 1439 60"><path d="M0,0 L0,60 C0,60 359,18 719,18 C1079,18 1439,60 1439,60 L1439,0 Z" fill=""></path></svg>
+                <div class="container hidden">
+                    <h2>Asistencia</h2>
+                    <p>No podemos imaginar nuestra boda sin ti, por eso queremos asegurarnos de que estarás ahí para compartir esta felicidad con nosotros.</p>
+                    <p>¿Contamos contigo?</p>
+                    <p>Para que todos puedan relajarse y disfrutar, hemos decidido hacer nuestra boda solo para adultos. <br>Agradecemos por los arreglos que haces para asistir sin niños.</p>
+                    <div class="btnInfo">
+                        <a href="https://wa.me/522292050050?text=Hola, confirmo mi asistencia a tu boda." target="_blank" ><img src="/img/whatsapp-fill.svg" alt="Icono de whatsapp"> Confirmar asistencia</a>
                     </div>
-
                 </div>
             </section>
 

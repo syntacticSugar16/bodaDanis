@@ -251,7 +251,9 @@ p{
 .fill-2{
     fill: var(--second-bg-color);
     padding: 0 0 2rem 0;
-    /*transform:3rotate(180deg);*/
+}
+.rotate{
+    transform: rotate(180deg);
 }
 .hidden{
     opacity: 0;
@@ -377,6 +379,7 @@ p{
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
     justify-items: center;
+    color: var(--texto);
 }
 #date-container div img{
     width: 30%;
@@ -393,10 +396,10 @@ p{
 }
 .btnInfo a, input[type="button"], button{
     font-size: 2.2rem;
-    color: #000000;
+    color: #ffffff;
     padding: 1.2rem 1.2rem;
     text-decoration: none;
-    background-color: #ffffff;
+    background-color: var(--texto);
     border-radius: .5rem;
 }
 .btnInfo a > img{
@@ -436,10 +439,14 @@ p{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 0 0 3rem 0;
+    padding: 0 0 2rem 0;
 }
-#regalos img{
-    width: 15%;
+#regalos p{
+    margin: 0 0 2.5rem 0;
+}
+#regalos a{
+    color: #ffffff;
+    text-decoration: none;
 }
 #galeria{
     color: #ffffff;
@@ -500,6 +507,12 @@ span.PIN_1753733900787_embed_grid{
   height: 5rem; /*  Ajusta la altura de la línea */
   display: inline-block; /* Permite que la línea se ubique entre otros elementos */
 }
+.opciones-regalo{
+    display: flex;
+}
+.opciones-regalo img{
+    width: 40%;
+}
 @media screen and (max-width: 992px){
     h1{
         font-size: 6rem;
@@ -529,7 +542,10 @@ span.PIN_1753733900787_embed_grid{
         width: 20%;
     }
     #vestimenta img{
-        width: 40%;
+        width: 42%;
+    }
+    #vestimenta #traje{
+        width: 38%;
     }
     #time img{
         width: 25%;
@@ -579,7 +595,6 @@ span.PIN_1753733900787_embed_grid{
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
     justify-items: center;
-    margin: 0 0 2rem 0;
 }
     #date-info img{
         width: 80%;
@@ -593,5 +608,14 @@ span.PIN_1753733900787_embed_grid{
     }
     span.PIN_1753733900787_embed_grid{
         width: 250px;
+    }
+    .opciones-regalo{
+        flex-direction: column;
+    }
+    .opciones-regalo img{
+        width: 25%;
+    }
+    #gift-regalos{
+        width: 15%;
     }
 }
