@@ -83,6 +83,18 @@ p{
     flex-direction: column; /* Para alinear el texto arriba del sobre */
     background-color: var(--second-bg-color);
 }
+.letter-right, .letter-left{
+    position: absolute;
+    width: 100%;
+}
+.letter-left{
+    left: -73px;
+    transform: rotate(33deg);
+}
+.letter-right{
+    left: 80px;
+    transform: rotate(-33deg);
+}
 .invitacion{
     position: fixed;
 }
@@ -129,7 +141,7 @@ p{
         .top.flap {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
             width: 100%;
             height: 50%;
             top: 0;
@@ -361,9 +373,10 @@ p{
 }
 
 #date-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    justify-items: center;
 }
 #date-container div img{
     width: 30%;
@@ -475,14 +488,17 @@ span.PIN_1753733900787_embed_grid{
 .elem-itinerario-left img{
     justify-content: end;
 }
+.elem-itinerario .linea-vertical{
+    border-left: 0;
+}
 .fondo-itinerario{
     background-color: var(--bg-color);
     border-radius: 0 0 45rem 45rem;
 }
-.sep-itinerario{
-    background-color: var(--second-bg-color);
-    width: 1rem;
-    height: 2rem;
+.linea-vertical {
+  border-left: 3px solid var(--second-bg-color); /*  Crea una línea vertical de 1 píxel de ancho, negra */
+  height: 5rem; /*  Ajusta la altura de la línea */
+  display: inline-block; /* Permite que la línea se ubique entre otros elementos */
 }
 @media screen and (max-width: 992px){
     h1{
@@ -559,8 +575,12 @@ span.PIN_1753733900787_embed_grid{
         color: #000000;
     }
     #date-container{
-        flex-direction: column;
-    }
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    margin: 0 0 2rem 0;
+}
     #date-info img{
         width: 80%;
     }
