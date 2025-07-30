@@ -243,11 +243,11 @@ p{
 }
 .hidden{
     opacity: 0;
-    transition: all 2s;
+    transition: all 1s;
 }
 .show{
     opacity: 1;
-    animation: scale-center 1.3s;
+    animation: scale-center 0.7s;
 }
 @keyframes scale-center {
   from {transform: scale(0);}
@@ -265,7 +265,9 @@ p{
     justify-content: center;
     text-align: center;
 }
-
+.fondo-titulo{
+    background-color: var(--bg-color);
+}
 #titulo{
     display: flex;
     flex-direction: column;
@@ -273,7 +275,7 @@ p{
     height: 100vh;
     color: #ffffff;
     padding: 0 0 10rem 0;    
-    background-image: linear-gradient(rgba(7, 12, 0, 0.5), rgba(7, 12, 0, 0.5)), url("/img/fotos-danis/mainFondo.jpeg");    
+    background-image: linear-gradient(rgba(7, 12, 0, 0), rgba(7, 12, 0, 0.5)), url("/img/fotos-danis/mainFondo.jpeg");    
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -389,7 +391,7 @@ p{
 }
 #asistencia {
     color: #ffffff;
-    background-image: linear-gradient(rgba(5, 7 , 12, 0.65), rgba(5, 7, 12, 0.65)), url('/img/ranita.jpeg');
+    background-image: linear-gradient(rgba(5, 7 , 12, 0.65), rgba(5, 7, 12, 0.65)), url('/img/fotos-danis/whatsapp\ image\ 2025-07-12\ at\ 6.05.02\ pm\ \(2\)\ -\ copia.jpeg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -409,7 +411,7 @@ p{
     color: var(--texto);
 }
 #vestimenta img{
-    width: 20%;
+    width: 25%;
 }
 #vestimenta hr{
     width: 40%;
@@ -449,15 +451,48 @@ span.PIN_1753733900787_embed_grid{
     grid-template-columns: repeat(3, 250px);   
     justify-content: center;
 }
+#mensaje{
+    color: #ffffff;
+}
+#itinerario{
+    color: #ffffff;
+}
+.elem-itinerario-right, .elem-itinerario-left{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    align-items: center;
+    text-align: center;
+}
+.elem-itinerario-right p{
+    text-align: end;
+}
+.elem-itinerario-right img{
+    justify-content: center;
+}
+.elem-itinerario-left p{
+    text-align: start;
+}
+.elem-itinerario-left img{
+    justify-content: end;
+}
+.fondo-itinerario{
+    background-color: var(--bg-color);
+    border-radius: 0 0 45rem 45rem;
+}
+.sep-itinerario{
+    background-color: var(--second-bg-color);
+    width: 1rem;
+    height: 2rem;
+}
 @media screen and (max-width: 992px){
     h1{
         font-size: 6rem;
     }
     h2{
-        font-size: 4rem;
+        font-size: 3.8rem;
     }
     h3{
-        font-size: 4rem;
+        font-size: 3.8rem;
     }
     h4{
         font-size: 3rem;
