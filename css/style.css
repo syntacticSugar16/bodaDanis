@@ -255,11 +255,11 @@ p{
 }
 .hidden{
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.8s;
 }
 .show{
     opacity: 1;
-    animation: scale-center 0.7s;
+    animation: scale-center 0.5s;
 }
 @keyframes scale-center {
   from {transform: scale(0);}
@@ -270,7 +270,6 @@ p{
   from {transform: translate(-1000px);}
   to {transform: translate(0);}
 }
-
 .container{
     max-width: 1200px;
     margin: 0 auto;
@@ -286,13 +285,14 @@ p{
     justify-content: flex-end;
     height: 100vh;
     color: #ffffff;
-    padding: 0 0 10rem 0;    
-    background-image: linear-gradient(rgba(7, 12, 0, 0), rgba(7, 12, 0, 0.5)), url("/img/fotos-danis/mainFondo.jpeg");    
+    padding: 0 0 2rem 0;    
+    background-image: url("/img/fotos-danis/mainFondo.jpeg");    
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
     /*animation: change 30s ease-in-out infinite alternate-reverse forwards;*/
+    text-shadow: -1px 2px 11px rgba(0,0,0,0.85);
 }
 #titulo h1{
     color: #FBAF53;
@@ -514,7 +514,7 @@ span.PIN_1753733900787_embed_grid{
         font-size: 3rem;
     }
     p{
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     .container{
         max-width: 900px;
