@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Message Board</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        label, input, textarea, button { display: block; margin-bottom: 10px; width: 100%; box-sizing: border-box; }
+        textarea { resize: vertical; min-height: 80px; }
+        .message-list { margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px; }
+        .message-item { background-color: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 10px; }
+        .message-item strong { color: #333; }
+        .message-item p { margin: 5px 0 0; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Send a Message</h1>
+        <form id="messageForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <hr>
+
+        <h2>Messages</h2>
+        <div id="messageList" class="message-list">
+            <p>Loading messages...</p>
+        </div>
+    </div>
+
+    <script>
+        // Your Firebase configuration (from Firebase Console)
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        const messageForm = document.getElementById('messageForm');
+        const nameInput = document.getElementById('name');
+        const messageInput = document.getElementById('message');
+        const messageListDiv = document.getElementById('messageList');
+
+        // --- Function to add a message to Firebase ---
+        messageForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = nameInput.value;
+            const message = messageInput.value;
+
+            try {
+                await db.collection('messages').add({
+                    name: name,
+                    message: message,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp() // To store creation time
+                });
+                nameInput.value = '';
+                messageInput.value = '';
+                console.log('Message sent successfully!');
+            } catch (error) {
+                console.error('Error sending message: ', error);
+                alert('There was an error sending your message. Check the console for details.');
+            }
+        });
+
+        // --- Function to display messages from Firebase (real-time updates) ---
+        db.collection('messages').orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
+            messageListDiv.innerHTML = ''; // Clear existing messages
+            if (snapshot.empty) {
+                messageListDiv.innerHTML = '<p>No messages yet.</p>';
+                return;
+            }
+
+            snapshot.forEach(doc => {
+                const messageData = doc.data();
+                const messageItem = document.createElement('div');
+                messageItem.classList.add('message-item');
+                messageItem.innerHTML = `
+                    <strong>${messageData.name}</strong>
+                    <p>${messageData.message}</p>
+                    <small>${messageData.timestamp ? new Date(messageData.timestamp.toDate()).toLocaleString() : 'Just now'}</small>
+                `;
+                messageListDiv.appendChild(messageItem);
+            });
+        }, (error) => {
+            console.error('Error fetching messages: ', error);
+            messageListDiv.innerHTML = '<p>Error loading messages. Please try again later.</p>';
+        });
+    </script>
+</body>
+</html>

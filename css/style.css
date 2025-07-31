@@ -13,6 +13,9 @@ html {
   *, *:before, *:after {
     box-sizing: inherit;
   }
+  body{
+    background-color: var(--second-bg-color);
+  }
 
   .lds-heart {
     /* change color here */
@@ -64,6 +67,11 @@ h3{
 }
 h4{
     font-size: 4rem;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+}
+h5{
+    font-size: 2.4rem;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
 }
@@ -280,6 +288,7 @@ p{
 }
 .fondo-titulo{
     background-color: var(--bg-color);
+    color: #ffffff;
 }
 #titulo{
     display: flex;
@@ -288,7 +297,7 @@ p{
     height: 100vh;
     color: #ffffff;
     padding: 0 0 2rem 0;    
-    background-image: url("/img/fotos-danis/mainFondo.jpeg");    
+    background-image: url("/img/fotos-danis/mainFondo2.jpeg");    
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -405,6 +414,18 @@ p{
 .btnInfo a > img{
     width: 2.2rem;
 }
+.bendicion{
+    color: #ffffff;
+}
+.bendicion hr{
+    width: 60%;
+    margin: 4rem auto;
+}
+.fondo-bendicion{
+    background-color: var(--bg-color);
+    border-radius: 0 0 50rem 50rem;
+    padding: 2rem 0 8rem 0;
+}
 #asistencia {
     color: #ffffff;
     background-image: linear-gradient(rgba(5, 7 , 12, 0.65), rgba(5, 7, 12, 0.65)), url('/img/fotos-danis/whatsapp\ image\ 2025-07-12\ at\ 6.05.02\ pm\ \(2\)\ -\ copia.jpeg');
@@ -430,7 +451,7 @@ p{
     width: 25%;
 }
 #vestimenta hr{
-    width: 40%;
+    width: 50%;
 }
 #regalos{
     color: #ffffff;
@@ -476,6 +497,8 @@ span.PIN_1753733900787_embed_grid{
 }
 #itinerario{
     color: #ffffff;
+    background-color: var(--second-bg-color);
+    padding: 5rem 0;
 }
 .elem-itinerario-right, .elem-itinerario-left{
     display: grid;
@@ -500,7 +523,8 @@ span.PIN_1753733900787_embed_grid{
 }
 .fondo-itinerario{
     background-color: var(--bg-color);
-    border-radius: 0 0 45rem 45rem;
+    padding: 5rem 0 0 0;
+    border-radius: 45rem 45rem 45rem 45rem;
 }
 .linea-vertical {
   border-left: 3px solid var(--second-bg-color); /*  Crea una línea vertical de 1 píxel de ancho, negra */

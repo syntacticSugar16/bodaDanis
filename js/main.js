@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backgroundImage = document.querySelector('.background-image');
     const letterContainer = document.querySelector('.letter-container');
     const invitacion = document.querySelector('.invitacion');
+    const indicacion = document.querySelector('.indicacion');
 
     envelopeWrapper.addEventListener('click', function() {
         if (!this.classList.contains('open')) {
@@ -46,6 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1000);
 
             setTimeout(() => {
+                indicacion.style.display = 'none';
+            }, 500);
+
+            setTimeout(() => {
                 envelopeWrapper.style.display = 'none';
                 backgroundImage.style.opacity = '1';
             }, 5000);
@@ -53,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 letterContainer.style.display = 'none';
                 invitacion.style.position = 'relative';
+                indicacion.style.display = 'none';
             }, 4700);
             
         }
