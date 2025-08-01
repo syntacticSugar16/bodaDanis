@@ -261,7 +261,7 @@ p{
     padding: 0 0 2rem 0;
 }
 .rotate{
-    transform: rotate(180deg);
+    transform: translateY(-4rem) rotate(180deg);
 }
 .hidden{
     opacity: 0;
@@ -432,12 +432,19 @@ p{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 3rem 0;
-
+    padding: 0 0 15rem 0;
+}
+#asistencia svg{
+    margin: 0 0 15rem 0;
+}
+.aviso{
+    color: #ffffff;
+    background-color: var(--bg-color);
+    padding: 0 0 4rem 0;
 }
 #vestimenta{
     color: #ffffff;
@@ -538,49 +545,49 @@ span.PIN_1753733900787_embed_grid{
     width: 40%;
 }
 .container-wrapper {
-            background-color: #ffffff;
-            padding: 40px; /* Padding por defecto para pantallas más grandes */
-            border-radius: 15px;
-            box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 800px; /* Ancho máximo para el contenedor principal */
-            margin: 20px auto; /* Centrar el contenedor con margen vertical */
-        }
-        /* Estilos para los campos del formulario */
-        .form-group {
-            margin-bottom: 20px;
-        }
+    background-color: #ffffff;
+    padding: 4rem; /* Padding por defecto para pantallas más grandes */
+    border-radius: 2rem;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px; /* Ancho máximo para el contenedor principal */
+    margin: 20px auto; /* Centrar el contenedor con margen vertical */
+}
+/* Estilos para los campos del formulario */
+.form-group {
+    margin-bottom: 20px;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            color: #424242;
-            font-weight: 500;
-        }
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 2rem;
+    color: #424242;
+    font-weight: 500;
+}
 
-        .form-group input[type="text"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px; /* Bordes redondeados */
-            font-size: 1rem;
-            box-sizing: border-box; /* Incluye padding y borde en el ancho total */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1.8rem;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .form-group input[type="text"]:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #2196f3;
-            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
-        }
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+}
 
-        .form-group textarea {
-            resize: vertical; /* Permitir redimensionar verticalmente */
-            min-height: 80px;
-        }
+.form-group textarea {
+    resize: vertical; /* Permitir redimensionar verticalmente */
+    min-height: 80px;
+}
 
         /* Estilos para el botón */
         .submit-button {
@@ -684,7 +691,7 @@ span.PIN_1753733900787_embed_grid{
         @media (max-width: 800px) {
             .container-wrapper {
                 padding: 15px; /* Padding más ajustado en pantallas pequeñas */
-                margin: 10px auto; /* Margen para evitar que se pegue a los bordes */
+                margin: 2rem auto 5rem auto; /* Margen para evitar que se pegue a los bordes */
             }
             .message-card {
                 min-width: 250px; /* Ligeramente más pequeño en móviles */
@@ -696,10 +703,10 @@ span.PIN_1753733900787_embed_grid{
         font-size: 6rem;
     }
     h2{
-        font-size: 3.8rem;
+        font-size: 3.6rem;
     }
     h3{
-        font-size: 3.8rem;
+        font-size: 3.4rem;
     }
     h4{
         font-size: 3rem;
