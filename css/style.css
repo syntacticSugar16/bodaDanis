@@ -484,6 +484,9 @@ p{
 #galeria p{
     color: var(--texto);
 }
+.carousel{
+    transform: translateY(-8rem);
+}
 .gift{
     width: 25%;
 }
