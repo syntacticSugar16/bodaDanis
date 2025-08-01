@@ -243,6 +243,39 @@
                 <div>
                     <h2>Dejanos un mensaje</h2>
                     <svg class="fill-1" fill="" viewBox="0 0 1439 45"><path d="M0,0 L0,45 C0,45 359,18 719,18 C1079,18 1439,45 1439,45 L1439,0 Z" fill=""></path></svg>
+
+                    <div class="container-wrapper">
+                        <h1>Envía tu Mensaje</h1>
+
+                        <!-- Formulario para enviar mensajes -->
+                        <form id="message-form">
+                            <div class="form-group">
+                                <label for="name-input">Tu Nombre</label>
+                                <input id="name-input" type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-input">Tu Mensaje</label>
+                                <textarea id="message-input" rows="4" required></textarea>
+                            </div>
+                            <button class="submit-button" type="submit">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+
+                        <div class="divider"></div>
+
+                        <h2>Mensajes Recibidos</h2>
+
+                        <!-- Indicador de carga -->
+                        <div id="loading-indicator">
+                            Cargando mensajes...
+                        </div>
+
+                        <!-- Contenedor donde se mostrarán los mensajes -->
+                        <div id="messages-container">
+                            <!-- Los mensajes se cargarán aquí dinámicamente -->
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -432,5 +465,157 @@
     <script src="js/alert.js"></script>
     <script src="/js/simplyCountdown.min.js"></script>
     <script src="/js/countdown.js"></script>
+    <script type="module">
+        // Importa las funciones necesarias de Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+
+        // Configuración de Firebase: Intenta usar __firebase_config del entorno, si no, usa la configuración por defecto.
+        const firebaseConfig = typeof __firebase_config !== 'undefined'
+            ? JSON.parse(__firebase_config)
+            : {
+                apiKey: "AIzaSyAIpYR5IfMLKJpogfLYMQ375PnEo9HMCYc",
+                authDomain: "boda-4d986.firebaseapp.com",
+                databaseURL: "https://boda-4d986-default-rtdb.firebaseio.com",
+                projectId: "boda-4d986",
+                storageBucket: "boda-4d986.firebasestorage.app",
+                messagingSenderId: "433750913571",
+                appId: "1:433750913571:web:06585ae59374f87f49f796",
+                measurementId: "G-8VL86NR41N"
+            };
+
+        // Inicializa la aplicación Firebase
+        const app = initializeApp(firebaseConfig);
+        // Obtiene la instancia de la base de datos en tiempo real
+        const db = getDatabase(app);
+        // Obtiene la instancia de autenticación
+        const auth = getAuth(app);
+
+        let userId = ''; // Variable para almacenar el ID de usuario
+
+        // Elementos del DOM
+        const messageForm = document.getElementById('message-form');
+        const nameInput = document.getElementById('name-input');
+        const messageInput = document.getElementById('message-input');
+        const messagesContainer = document.getElementById('messages-container');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        /**
+         * Función para inicializar Firebase y configurar los listeners.
+         * Se ejecuta cuando la ventana ha cargado completamente.
+         */
+        window.onload = async () => {
+            try {
+                // Intenta iniciar sesión con un token personalizado si está disponible (entorno Canvas)
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    // Si no hay token, inicia sesión de forma anónima
+                    await signInAnonymously(auth);
+                }
+                // Obtiene el ID de usuario actual o genera uno si es necesario
+                userId = auth.currentUser?.uid || crypto.randomUUID();
+                console.log("Firebase inicializado y autenticado. ID de usuario:", userId);
+
+                // Configura el listener de la base de datos en tiempo real una vez autenticado
+                setupRealtimeListeners();
+            } catch (error) {
+                console.error("Error durante la inicialización o autenticación de Firebase:", error);
+                loadingIndicator.textContent = 'Error al inicializar la aplicación. Por favor, recarga la página.';
+                loadingIndicator.classList.add('red-text'); // Clase de Materialize para texto rojo
+            }
+        };
+
+        /**
+         * Maneja el envío del formulario para guardar un nuevo mensaje en Firebase.
+         */
+        messageForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita el envío por defecto del formulario
+
+            const name = nameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (name && message) {
+                try {
+                    // Define la referencia a la colección de mensajes en la base de datos.
+                    // Se usa __app_id para crear una ruta única por aplicación, si está disponible.
+                    const messagesRef = ref(db, `messages/${typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'}`);
+
+                    // Empuja un nuevo mensaje a la base de datos con nombre, mensaje y marca de tiempo
+                    await push(messagesRef, {
+                        name: name,
+                        message: message,
+                        timestamp: Date.now() // Guarda la marca de tiempo para ordenar
+                    });
+
+                    // Limpia los campos del formulario después de enviar
+                    nameInput.value = '';
+                    messageInput.value = '';
+                    // Re-inicializa los campos de Materialize para que las etiquetas floten correctamente
+                    M.updateTextFields();
+                    M.textareaAutoResize(messageInput);
+                } catch (error) {
+                    console.error("Error al enviar el mensaje:", error);
+                    // Muestra un mensaje de error al usuario (podrías usar un modal personalizado)
+                    messagesContainer.innerHTML = `<p class="red-text">Error al enviar el mensaje: ${error.message}</p>`;
+                }
+            } else {
+                // Informa al usuario que ambos campos son obligatorios
+                messagesContainer.innerHTML = `<p class="orange-text">Por favor, escribe tu nombre y un mensaje.</p>`;
+            }
+        });
+
+        /**
+         * Configura el listener en tiempo real para la colección de mensajes.
+         * Se activa cada vez que hay cambios en la base de datos.
+         */
+        function setupRealtimeListeners() {
+            // Define la referencia a la colección de mensajes
+            const messagesRef = ref(db, `messages/${typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'}`);
+
+            // onValue escucha los cambios en tiempo real
+            onValue(messagesRef, (snapshot) => {
+                loadingIndicator.style.display = 'none'; // Oculta el indicador de carga
+                messagesContainer.innerHTML = ''; // Limpia los mensajes anteriores
+
+                if (snapshot.exists()) {
+                    const data = snapshot.val(); // Obtiene los datos del snapshot
+                    const messagesArray = [];
+
+                    // Convierte el objeto de datos en un array para facilitar la iteración y el ordenamiento
+                    for (let key in data) {
+                        messagesArray.push({ id: key, ...data[key] });
+                    }
+
+                    // Ordena los mensajes por marca de tiempo (los más antiguos primero)
+                    messagesArray.sort((a, b) => a.timestamp - b.timestamp);
+
+                    // Itera sobre los mensajes y los añade al contenedor
+                    messagesArray.forEach((msg) => {
+                        const messageElement = document.createElement('div');
+                        // Aplica las clases de Materialize para una tarjeta
+                        messageElement.className = 'col s12 m6 l4 message-card card blue-grey lighten-5'; // Clases de Materialize para responsividad y estilo de tarjeta
+                        messageElement.innerHTML = `
+                            <div class="card-content black-text">
+                                <span class="card-title" style="font-weight: bold; color: #3f51b5;">${msg.name}:</span>
+                                <p>${msg.message}</p>
+                                <p class="right-align grey-text text-darken-1" style="font-size: 0.75rem; margin-top: 10px;">${new Date(msg.timestamp).toLocaleString()}</p>
+                            </div>
+                        `;
+                        messagesContainer.appendChild(messageElement);
+                    });
+                } else {
+                    // Si no hay mensajes, muestra un mensaje indicándolo
+                    messagesContainer.innerHTML = '<p class="grey-text text-darken-1 center-align" style="padding: 20px 0;">No hay mensajes aún. ¡Sé el primero en escribir uno!</p>';
+                }
+            }, (error) => {
+                // Manejo de errores al leer la base de datos
+                console.error("Error al leer los mensajes:", error);
+                loadingIndicator.textContent = 'Error al cargar mensajes. Por favor, verifica tu conexión.';
+                loadingIndicator.classList.add('red-text');
+            });
+        }
+    </script>
 </body>
 </html>

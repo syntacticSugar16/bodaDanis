@@ -537,6 +537,160 @@ span.PIN_1753733900787_embed_grid{
 .opciones-regalo img{
     width: 40%;
 }
+.container-wrapper {
+            background-color: #ffffff;
+            padding: 40px; /* Padding por defecto para pantallas más grandes */
+            border-radius: 15px;
+            box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px; /* Ancho máximo para el contenedor principal */
+            margin: 20px auto; /* Centrar el contenedor con margen vertical */
+        }
+        /* Estilos para los campos del formulario */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #424242;
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Bordes redondeados */
+            font-size: 1rem;
+            box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2196f3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Permitir redimensionar verticalmente */
+            min-height: 80px;
+        }
+
+        /* Estilos para el botón */
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #2196f3; /* Azul Material Design */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-button:hover {
+            background-color: #1976d2; /* Azul más oscuro al pasar el ratón */
+            transform: translateY(-2px);
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 40px 0;
+        }
+
+        /* Indicador de carga */
+        #loading-indicator {
+            text-align: center;
+            color: #757575;
+            font-size: 1.1rem;
+            padding: 20px 0;
+        }
+
+        /* Contenedor de mensajes deslizables */
+        #messages-container {
+            display: flex;
+            overflow-x: auto; /* Permite el desplazamiento horizontal */
+            gap: 1rem; /* Espacio entre las tarjetas */
+            padding-bottom: 0.5rem; /* Espacio para la barra de desplazamiento */
+            padding-left: 1rem; /* Padding horizontal */
+            padding-right: 1rem; /* Padding horizontal */
+            -webkit-overflow-scrolling: touch; /* Desplazamiento suave en iOS */
+            scrollbar-width: thin; /* Para Firefox */
+            scrollbar-color: #9ca3af #e5e7eb; /* Para Firefox */
+        }
+
+        /* Estilos de la barra de desplazamiento para navegadores WebKit */
+        #messages-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        #messages-container::-webkit-scrollbar-track {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+
+        #messages-container::-webkit-scrollbar-thumb {
+            background-color: #9ca3af;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+        }
+
+        /* Estilos para cada tarjeta de mensaje */
+        .message-card {
+            flex-shrink: 0; /* Evita que las tarjetas se encojan */
+            min-width: 280px; /* Ancho mínimo */
+            max-width: 320px; /* Ancho máximo */
+            background-color: #e3f2fd; /* Fondo azul claro */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            white-space: normal; /* Permite que el texto se envuelva */
+            margin-bottom: 10px; /* Espacio inferior */
+        }
+
+        .message-card .message-name {
+            font-weight: bold;
+            color: #3f51b5; /* Azul más oscuro para el nombre */
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .message-card .message-text {
+            color: #424242;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .message-card .message-timestamp {
+            text-align: right;
+            color: #757575;
+            font-size: 0.75rem;
+            margin-top: 10px;
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 800px) {
+            .container-wrapper {
+                padding: 15px; /* Padding más ajustado en pantallas pequeñas */
+                margin: 10px auto; /* Margen para evitar que se pegue a los bordes */
+            }
+            .message-card {
+                min-width: 250px; /* Ligeramente más pequeño en móviles */
+                max-width: 100%; /* Ocupa todo el ancho disponible en móviles */
+            }
+        }
 @media screen and (max-width: 992px){
     h1{
         font-size: 6rem;
