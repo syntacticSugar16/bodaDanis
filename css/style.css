@@ -516,8 +516,9 @@ span.PIN_1753733900787_embed_grid{
 .elem-itinerario-right p{
     text-align: end;
 }
-.elem-itinerario-right img{
-    justify-content: center;
+.elem-itinerario-right img, .elem-itinerario-left img{
+    width: 70%;
+    margin: 0 auto;
 }
 .elem-itinerario-left p{
     text-align: start;
@@ -537,6 +538,7 @@ span.PIN_1753733900787_embed_grid{
   border-left: 3px solid var(--second-bg-color); /*  Crea una línea vertical de 1 píxel de ancho, negra */
   height: 5rem; /*  Ajusta la altura de la línea */
   display: inline-block; /* Permite que la línea se ubique entre otros elementos */
+  margin: 1rem 0;
 }
 .opciones-regalo{
     display: flex;
@@ -698,6 +700,21 @@ span.PIN_1753733900787_embed_grid{
                 max-width: 100%; /* Ocupa todo el ancho disponible en móviles */
             }
         }
+.padrinos{
+    color: var(--texto);
+    padding: 4rem 0;
+}
+.vertical-line {
+    width: 2px; /* Ancho de la línea */
+    height: 8rem; /* Alto de la línea */
+    background-color: var(--texto); /* Color de la línea (azul) */
+    border-radius: 1px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para darle profundidad */
+    margin: 0 auto;
+}
+.padrinos img{
+    width: 25%;
+}
 @media screen and (max-width: 992px){
     h1{
         font-size: 6rem;
