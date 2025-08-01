@@ -213,7 +213,7 @@ p{
             transform: translateY(10px); /* Inicialmente fuera de la vista */
             transition: transform 1s ease-in-out 0.3s, opacity 0.5s ease-in-out 0.3s;
             opacity: 0;
-            background-image: url("/img/fotos-danis/mainFondo.jpeg");
+            background-image: url("/img/fotos-danis/mainFondo3.jpeg");
             background-repeat: no-repeat;
             background-attachment: local;
             background-size: cover;
@@ -715,6 +715,64 @@ span.PIN_1753733900787_embed_grid{
 .padrinos img{
     width: 25%;
 }
+#audio{
+    display: none;
+}
+/* Estilo para el botón flotante de acción (FAB) */
+        .fab-container {
+            position: absolute; /* Fija el botón en la pantalla */
+            bottom: 20px; /* Distancia desde la parte inferior */
+            right: 20px; /* Distancia desde la derecha */
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        }
+
+        .fab-button {
+            width: 60px; /* Ancho y alto para hacerlo circular */
+            height: 60px;
+            border-radius: 50%; /* Hace el botón circular */
+            background-color: #2196f3; /* Color de fondo azul */
+            color: white; /* Color del icono */
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            outline: none; /* Elimina el contorno al hacer clic */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .fab-button:hover {
+            background-color: #1976d2; /* Azul más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Pequeño efecto de elevación */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .fab-button:active {
+            transform: translateY(0); /* Vuelve a su posición original al hacer clic */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .fab-button .material-icons {
+            font-size: 28px; /* Tamaño del icono */
+        }
+
+        /* Estilos responsivos para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .fab-container {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .fab-button {
+                width: 50px; /* Botón ligeramente más pequeño en móviles */
+                height: 50px;
+            }
+
+            .fab-button .material-icons {
+                font-size: 24px; /* Icono más pequeño en móviles */
+            }
+        }
 @media screen and (max-width: 992px){
     h1{
         font-size: 6rem;

@@ -16,6 +16,9 @@
     <title>D & D</title>
 </head>
 <body id="parent">
+    <audio id="audio" controls loop id="audio">
+        <source type="audio/mp3" src="Capuchino de Amor.mp3">
+    </audio>
     <div>
         <div class="letter-container">
             <p style="font-size: 1rem;" class="indicacion"><b>Click para abrir</b></p>
@@ -38,6 +41,12 @@
         </div>
 
         <div class="invitacion">
+            <div class="fab-container">
+                <button id="mute-toggle-button" class="fab-button">
+                    <!-- Icono inicial: Volumen desactivado (muted) -->
+                    <i class="material-icons">volume_off</i>
+                </button>
+            </div>
             <section id="titulo">
                 <div id="bg-titulo"></div>
                 <div class="container hidden contenido">
@@ -689,6 +698,7 @@
                 loadingIndicator.classList.add('red-text');
             });
         }
+
     </script>
 </body>
 </html>
