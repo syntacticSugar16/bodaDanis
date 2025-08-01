@@ -426,6 +426,9 @@ p{
     border-radius: 0 0 50rem 50rem;
     padding: 2rem 0 8rem 0;
 }
+.bendicion h2{
+    margin: 3rem auto;
+}
 #asistencia {
     color: #ffffff;
     background-image: linear-gradient(rgba(5, 7 , 12, 0.65), rgba(5, 7, 12, 0.65)), url('/img/fotos-danis/whatsapp\ image\ 2025-07-12\ at\ 6.05.02\ pm\ \(2\)\ -\ copia.jpeg');
@@ -550,7 +553,11 @@ span.PIN_1753733900787_embed_grid{
     width: 40%;
 }
 .container-wrapper {
-    background-color: #ffffff;
+    background-image: url("/img/fotos-danis/mensajes.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: local;
+            background-size: cover;
+            background-position: top; 
     padding: 4rem; /* Padding por defecto para pantallas más grandes */
     border-radius: 2rem;
     box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
@@ -567,15 +574,16 @@ span.PIN_1753733900787_embed_grid{
     display: block;
     margin-bottom: 5px;
     font-size: 2rem;
-    color: #424242;
+    color: #ffffff;
     font-weight: 500;
 }
 
 .form-group input[type="text"],
 .form-group textarea {
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
     padding: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--texto);
     border-radius: 8px; /* Bordes redondeados */
     font-size: 1.8rem;
     box-sizing: border-box; /* Incluye padding y borde en el ancho total */
@@ -617,7 +625,7 @@ span.PIN_1753733900787_embed_grid{
 
         .divider {
             height: 1px;
-            background-color: #e0e0e0;
+            background-color: var(--texto);
             margin: 40px 0;
         }
 
@@ -733,7 +741,7 @@ span.PIN_1753733900787_embed_grid{
             width: 60px; /* Ancho y alto para hacerlo circular */
             height: 60px;
             border-radius: 50%; /* Hace el botón circular */
-            background-color: #2196f3; /* Color de fondo azul */
+            background-color: var(--texto); /* Color de fondo azul */
             color: white; /* Color del icono */
             border: none;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
@@ -746,7 +754,7 @@ span.PIN_1753733900787_embed_grid{
         }
 
         .fab-button:hover {
-            background-color: #1976d2; /* Azul más oscuro al pasar el ratón */
+            background-color: var(--texto); /* Azul más oscuro al pasar el ratón */
             transform: translateY(-2px); /* Pequeño efecto de elevación */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
