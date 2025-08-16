@@ -784,6 +784,9 @@ span.PIN_1753733900787_embed_grid{
                 font-size: 24px; /* Icono más pequeño en móviles */
             }
         }
+#itinerario span{
+    font-size: 2rem;
+}
 @media screen and (max-width: 992px){
     h1{
         font-size: 6rem;
@@ -849,6 +852,9 @@ span.PIN_1753733900787_embed_grid{
     .simply-word{
         font-size: 1.5rem;
         font-weight: 300;
+    }
+    #itinerario span{
+        font-size: 1.2rem;
     }
     .cards{
         grid-template-columns: repeat(10, 250px);
