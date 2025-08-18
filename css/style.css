@@ -892,6 +892,9 @@ span.PIN_1753733900787_embed_grid{
     .opciones-regalo img{
         width: 25%;
     }
+    .opciones-regalo p span{
+        font-size: 1.4rem;
+    }
     #gift-regalos{
         width: 15%;
     }
